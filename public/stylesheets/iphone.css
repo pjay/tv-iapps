@@ -1,4 +1,5 @@
 ul.shows li .time {
+  padding: 1px;
   color: red;
   background-color: #e4e4e4;
 }
@@ -9,4 +10,5 @@ ul.shows li h2 {
 ul.shows li h3 {
   font-size: 70%;
   color: gray;
+  font-weight: normal;
 }
