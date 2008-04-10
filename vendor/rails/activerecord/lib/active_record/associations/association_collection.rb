@@ -41,7 +41,7 @@ module ActiveRecord
         delete(@target)
         reset_target!
       end
-
+      
       # Calculate sum using SQL, not Enumerable
       def sum(*args, &block)
         calculate(:sum, *args, &block)
@@ -160,8 +160,10 @@ module ActiveRecord
         def method_missing(method, *args, &block)
           if @target.respond_to?(method) || (!@reflection.klass.respond_to?(method) && Class.respond_to?(method))
             super
+          elsif @reflection.klass.scopes.include?(method)
+            @reflection.klass.scopes[method].call(self, *args)
           else
-            @reflection.klass.send(:with_scope, construct_scope) { @reflection.klass.send(method, *args, &block) }
+            with_scope(construct_scope) { @reflection.klass.send(method, *args, &block) }
           end
         end
 

@@ -119,6 +119,10 @@ module ActiveRecord
           )
         end
 
+        def with_scope(*args, &block)
+          @reflection.klass.send :with_scope, *args, &block
+        end
+          
       private
         def method_missing(method, *args, &block)
           if load_target

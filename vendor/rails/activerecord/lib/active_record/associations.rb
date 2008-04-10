@@ -1058,7 +1058,7 @@ module ActiveRecord
             send("#{reflection.name}=", reflection.class_name.constantize.find(ids))
           end if writer
         end
-
+        
         def add_multiple_associated_save_callbacks(association_name)
           method_name = "validate_associated_records_for_#{association_name}".to_sym
           define_method(method_name) do

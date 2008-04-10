@@ -414,7 +414,7 @@ class FinderTest < Test::Unit::TestCase
   end
 
   def test_find_all_by_array_attribute
-    assert_equal 2, Topic.find_all_by_title(["The First Topic", "The Second Topic's of the day"]).size
+    assert_equal 2, Topic.find_all_by_title(["The First Topic", "The Second Topic of the day"]).size
   end
 
   def test_find_all_by_boolean_attribute
@@ -423,7 +423,7 @@ class FinderTest < Test::Unit::TestCase
     assert topics.include?(topics(:first))
 
     topics = Topic.find_all_by_approved(true)
-    assert_equal 1, topics.size
+    assert_equal 3, topics.size
     assert topics.include?(topics(:second))
   end
 
@@ -435,8 +435,8 @@ class FinderTest < Test::Unit::TestCase
 
   def test_find_all_by_nil_attribute
     topics = Topic.find_all_by_last_read nil
-    assert_equal 1, topics.size
-    assert_nil topics[0].last_read
+    assert_equal 3, topics.size
+    assert topics.collect(&:last_read).all?(&:nil?)
   end
 
   def test_find_by_nil_and_not_nil_attributes
