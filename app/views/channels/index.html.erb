@@ -1,0 +1,7 @@
+<h1>Canaux</h1>
+
+<ul>
+  <% for channel in @channels %>
+    <li><%= link_to h(channel.name), channel %></li>
+  <% end %>
+</ul>
