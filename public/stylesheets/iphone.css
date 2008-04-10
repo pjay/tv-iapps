@@ -1,0 +1,12 @@
+ul.shows li .time {
+  color: red;
+  background-color: #e4e4e4;
+}
+ul.shows li h2 {
+  display: inline;
+  font-size: 100%;
+}
+ul.shows li h3 {
+  font-size: 70%;
+  color: gray;
+}
