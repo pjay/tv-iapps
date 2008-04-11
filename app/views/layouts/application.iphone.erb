@@ -11,6 +11,7 @@
   <div class="toolbar">
     <h1 id="pageTitle"></h1>
     <a id="backButton" class="button" href="#"></a>
+    <%= link_to "Refresh", refresh_channels_path, :target => '_self', :class => 'button' %>
   </div>
 
   <%= yield %>

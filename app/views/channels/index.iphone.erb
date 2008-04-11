@@ -1,5 +1,19 @@
-<ul title="Channels" selected="true">
+<ul id="channels" title="Channels" selected="true">
   <% for channel in @channels %>
-    <li><%= link_to h(channel.name), channel %></li>
+    <li><%= link_to h(channel.name), "##{channel.name}" %></li>
   <% end %>
 </ul>
+
+<% for channel in @channels %>
+  <ul id="<%= channel.name %>" title="<%= h(channel.name) %>" class="shows">
+    <% for show in channel.shows %>
+      <li>
+        <span class="time"><%= h(show.time) %></span>
+        <h2><%= h(show.title) %></h2>
+        <% unless show.subtitle.blank? %>
+          <h3><%= h(show.subtitle) %></h3>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

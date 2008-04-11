@@ -3,7 +3,7 @@ class CreateShows < ActiveRecord::Migration
     create_table :shows do |t|
       t.string :title, :null => false
       t.string :subtitle
-      t.datetime :broadcasted_at, :null => false
+      t.string :time, :null => false
       t.references :channel, :null => false
 
       t.timestamps
