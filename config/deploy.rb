@@ -1,5 +1,5 @@
-set :application, "gprc"
-set :repository, "git://github.com/hip/tv-iapps.git"
+set :application, "tv-iapps"
+set :repository, "git://github.com/hip/#{application}.git"
 set :scm, :git
 set :branch, "origin/master"
 set :deploy_via, :remote_cache
