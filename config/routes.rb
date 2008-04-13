@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   map.resources :channels, :collection => { :refresh => :get }
+  map.resources :shows
   
   map.root :controller => 'channels'
 

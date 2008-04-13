@@ -8,10 +8,16 @@
   <ul id="<%= channel.name %>" title="<%= h(channel.name) %>" class="shows">
     <% for show in channel.shows %>
       <li>
+        <% unless show.details.blank? %>
+          <a href="<%= url_for(show) %>">
+        <% end %>
         <span class="time"><%= h(show.time) %></span>
         <h2><%= h(show.title) %></h2>
         <% unless show.subtitle.blank? %>
           <h3><%= h(show.subtitle) %></h3>
+        <% end %>
+        <% unless show.details.blank? %>
+          </a>
         <% end %>
       </li>
     <% end %>

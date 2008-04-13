@@ -1,0 +1,8 @@
+<div title="<%= h(@show.title) %>" class="show">
+  <div class="text-container">
+    <span class="time"><%= h(@show.time) %></span>
+    <h1><%= h(@show.title) %></h1>
+    <h2><%= h(@show.subtitle) %></h2>
+    <%= @show.details unless @show.details.blank? %>
+  </div>
+</div>
